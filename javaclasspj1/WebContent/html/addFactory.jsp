@@ -4,12 +4,25 @@
 <html>
 <head>
 <meta charset="BIG5">
-<title>Insert title here</title>
+<style>
+fieldset{
+	margin:50px;
+	width:500px;
+	border:1px solid #ACD6FF;
+	border-radius:20px;
+}
+
+</style>
+<title>Add factory</title>
 </head>
 <body>
 <div align="center">
+<h1>修改頁面</h1>
 <jsp:useBean id="fac" scope="request" class="com.tl.bean.FactoryBean"/>
 <form method="post" action="../AddFactory">
+<fieldset>
+
+<legend><i>填寫欲修改資料</i></legend>
 <table>
 <tr>
 <td>序號<td><input type="text" name="facID">
@@ -27,6 +40,7 @@
 <td>網址<td><input type="text" name="facUrl">
 </table>
 <input type="submit" value="新增">
+</fieldset>
 </form>
 
 

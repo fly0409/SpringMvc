@@ -5,11 +5,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Factory</title>
+<style>
+fieldset{
+	margin:50px;
+	width:500px;
+	border:1px solid #ACD6FF;
+	border-radius:20px;
+}
+</style>
 </head>
 <body>
 <div align="center">
+<h1>修改頁面</h1>
 <jsp:useBean id="fac" scope="request" class="com.tl.bean.FactoryBean"/>
 <form method="post" action="UpdateFactory">
+<fieldset>
+<legend><i>填寫欲修改資料</i></legend>
 <table>
 <tr>
 <td>序號<td><input type="text" readonly value="<%=fac.getFacID()%>" name="facID">
@@ -27,6 +38,7 @@
 <td>網址<td><input type="text" value="<%=fac.getFacUrl()%>" name="facUrl">
 </table>
 <input type="submit" value="送出修改">
+</fieldset>
 </form>
 
 

@@ -71,8 +71,6 @@ public class FactoryDAOimpl implements FactoryDAO {
 		String qrySql ="select * FROM Factory";		
 		PreparedStatement pstmt =conn.prepareStatement(qrySql);
 		ResultSet rs =pstmt.executeQuery();
-		
-		System.out.println("ok");
 		while(rs.next()) {
      		FactoryBean fac =new FactoryBean(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7));
      		factoryArr.add(fac);

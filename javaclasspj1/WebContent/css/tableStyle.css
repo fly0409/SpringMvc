@@ -1,0 +1,54 @@
+@charset "BIG5";
+
+body{
+
+}
+
+h2{
+	color:#FFF8D7;
+	background-color:#2828FF;  
+	margin:10px 30px;
+    padding:10px 20px;
+}
+
+.table{
+	width:1450px
+	} 
+
+.widtr{
+	width:320px;
+}
+
+.nartr{
+	width:50px
+}
+
+.trh{
+	background-color:#750000	;
+	font-weight:700;
+	color:#FFFFFF;
+}
+
+td{
+	padding:5px
+}
+
+.left{
+	float:left;
+}
+
+.right{
+	float:right;
+}
+
+.buttom{
+	padding:30px 40px;
+}
+.buttom2{
+	padding:5px 250px;
+}
+
+.qry{
+
+	padding:0px 40px;
+}
