@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{
+	    margin:50px;
+	    width:400px;
+	    border:1px solid #ACD6FF;
+	    border-radius:20px;
+        text-align:left;
+        }       
+        .gtext{
+            color:gray;font-size: 0.8em;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", ready);
+
+        function ready(){
+        document.getElementById("idname").addEventListener("change",checkName);
+        document.getElementById("idpwd").addEventListener("change",checkPwd);
+        document.getElementById("idday").addEventListener("change",checkDate);
+
+         //判斷spin顯示出的字,sp為其物件(getElementbyID),後為真假
+         function checkResult(sp,boolean){
+            if(boolean){
+                sp.innerHTML="<img style='width:1em' src='okimg.png' >";
+                sp.innerHTML+="確認正確";
+                sp.style.color="green"; 
+            }else{
+                sp.innerHTML="<img style='height:1em' src='noimg.png'>";
+                sp.innerHTML+="輸入有誤";
+                sp.style.color="red";
+            }           
+        }
+
+        function checkName(){
+            let nameValue=document.getElementById("idname").value;
+            let spName=document.getElementById("spName");
+             //判斷元素值是否為空白，regEXp判斷中文2字以上
+            let re=/^[\u4E00-\u9FFF]{2,}$/;
+            console.log(re.test(nameValue));
+            if(re.test(nameValue)){
+                checkResult(spName,1);                
+            }else{
+                checkResult(spName,0);               
+            }
+        }
+
+        function checkPwd(){
+             //取得idPwd元素值
+            let thePwdObjectVal=document.getElementById("idpwd").value;   
+             //取得span元素
+            let sp = document.getElementById("spPwd");        
+            //判斷元素值是否為空白，regEXp判斷密碼長度是否大於6,只少要有數字,英文,特殊符號,不能有空白
+            let re=/^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*])(?!.*\s).{6,}$/
+            if(re.test(thePwdObjectVal)){
+                checkResult(sp,1);
+            }else{
+                checkResult(sp,0);
+            }
+        } 
+        
+        function checkDate(){
+            let spdate=document.getElementById("spdate");
+            let theDateObjVal = document.getElementById("idday").value;           
+            //regEXp判斷輸入格式()
+            let re=/^\d{1,}\/\d{1,2}\/\d{1,2}$/;
+            if (re.test(theDateObjVal)){
+                //取得輸入字串並切割
+                let dateAry=theDateObjVal.split("\/")    
+                //字串直轉INT
+                let year=parseInt(dateAry[0]);
+                let month=parseInt(dateAry[1]);
+                let day=parseInt(dateAry[2]);    
+                 //建立date物件,比較是否相等
+                let d = new Date(year,month-1,day);
+                console.log(d);
+                console.log(d.getMonth()+1);
+                if((d.getMonth()+1)==month&&d.getDate()==day){
+                    checkResult(spdate,1);
+                }else{
+                    checkResult(spdate,0);  
+                }
+            }else{
+                checkResult(spdate,0);  
+            } 
+        }
+        }        
+    </script>
+
+
+
+</head>
+<body>
+    <div align="center">
+        <form>
+        <fieldset>
+            <legend>Form Check</legend>
+            <label>姓名:</label><input type="text" id="idname" placeholder="姓名"><spin id="spName"></spin>
+            <div class="gtext">(1.不可空白，2.至少兩個字以上，3.必須全為中文)</div>
+            <hr>
+            <label>密碼:</label><input type="text" id="idpwd" placeholder="password"><spin id="spPwd" ></spin>
+            <div class="gtext">(1.不可空白，2.至少6個字且包含英文，數字及特殊字元(!@#$%^&))</div>
+            <hr>
+            <label>日期:</label><input type="text" id="idday" placeholder="ex:2019/02/05"><spin id="spdate"></spin>
+            <div class="gtext">格式:西元年/月/日 yyyy/mm/dd</div>
+            <input type="submit" value="送出"><input type="reset" value="清除">
+        </fieldset>
+     
+    </form>
+    </div>
+</body>
+</html>
