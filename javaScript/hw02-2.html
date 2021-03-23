@@ -42,7 +42,7 @@
         function checkName(){
             let nameValue=document.getElementById("idname").value;
             let spName=document.getElementById("spName");
-             //判斷元素值是否為空白，regEXp判斷中文2字以上
+             //判斷元素值是否為空白，regEXp判斷中文2字以上.
             let re=/^[\u4E00-\u9FFF]{2,}$/;
             console.log(re.test(nameValue));
             if(re.test(nameValue)){
@@ -109,7 +109,7 @@
             <div class="gtext">(1.不可空白，2.至少6個字且包含英文，數字及特殊字元(!@#$%^&))</div>
             <hr>
             <label>日期:</label><input type="text" id="idday" placeholder="ex:2019/02/05"><spin id="spdate"></spin>
-            <div class="gtext">格式:西元年/月/日 yyyy/mm/dd</div>
+            <div class="gtext">格式:西元年/月/日 yyyy/mm/dd</div>   
         </fieldset>
      
     </form>
