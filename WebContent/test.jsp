@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>account</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h2>hi,${accName}</h2>
-	<img src="http://localhost:8080/SpringMvcPractice/accountMember.pic">
+123
 </body>
 </html>

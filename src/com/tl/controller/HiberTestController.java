@@ -9,13 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tl.model.Account;
-import com.tl.model.AccountDaoHib;
+import com.tl.model.AccountDao;
 
 @Controller
 public class HiberTestController {
 	
-	@Autowired @Qualifier("accountDaoHib")
-	private AccountDaoHib accDao;
+	@Autowired @Qualifier("accountDao")
+	private AccountDao accDao;
 	
 	@RequestMapping(path="/hibertest.controller")
 	public String hiberTest(Model m) {
