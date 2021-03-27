@@ -1,7 +1,5 @@
 package com.tl.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +17,7 @@ public class AccountMember {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="AccountID")
-	private int accountID;
+	private Integer accountID;
 	
 	@Column(name="Account")
 	private String account;
@@ -52,16 +50,16 @@ public class AccountMember {
 	private String distinct;
 	
 	@Column(name="YummyPoint")
-	private int YummyPoint;
+	private Integer YummyPoint;
 	
 	@Column(name="Level_ID")
 	private String level_id;
 
-	public int getAccountID() {
+	public Integer getAccountID() {
 		return accountID;
 	}
 
-	public void setAccountID(int accountID) {
+	public void setAccountID(Integer accountID) {
 		this.accountID = accountID;
 	}
 
@@ -145,11 +143,11 @@ public class AccountMember {
 		this.distinct = distinct;
 	}
 
-	public int getYummyPoint() {
+	public Integer getYummyPoint() {
 		return YummyPoint;
 	}
 
-	public void setYummyPoint(int yummyPoint) {
+	public void setYummyPoint(Integer yummyPoint) {
 		YummyPoint = yummyPoint;
 	}
 

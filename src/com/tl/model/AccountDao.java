@@ -32,7 +32,6 @@ public class AccountDao {
 	}
 	
 	public boolean checkLogin(Account account) {
-		System.out.println("------------------------");
 		String hql="from Account where username=:user and userpwd=:pwd";
 		Session session = sessionFactory.getCurrentSession();
 		Query<Account> qry = session.createQuery(hql,Account.class);

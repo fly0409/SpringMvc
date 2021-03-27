@@ -38,7 +38,7 @@ public class AppContext {
 	@Bean
 	public DataSource dataSource() {
 	        final JndiDataSourceLookup dsLookup = new JndiDataSourceLookup();
-	        DataSource dataSource = dsLookup.getDataSource("java:comp/env/pepper/servdb");
+	        DataSource dataSource = dsLookup.getDataSource("java:comp/env/tai/servdb");
 	        return dataSource;
 	 } 
 	@Bean
