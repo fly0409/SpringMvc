@@ -1,5 +1,7 @@
 package com.tl.model;
 
+import java.sql.Blob;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Component("accoutmember")
 @Entity
@@ -40,8 +44,9 @@ public class AccountMember {
 	@Column(name="ProtraitName")
 	private String protraitName;
 	
+	@JsonIgnore
 	@Column(name="UserProtrait")
-	private byte[] userProtrait;
+	private Blob userProtrait;
 	
 	@Column(name="Sex")
 	private String sex;
@@ -50,7 +55,7 @@ public class AccountMember {
 	private String distinct;
 	
 	@Column(name="YummyPoint")
-	private Integer YummyPoint;
+	private Integer yummyPoint;
 	
 	@Column(name="Level_ID")
 	private String level_id;
@@ -119,11 +124,11 @@ public class AccountMember {
 		this.protraitName = protraitName;
 	}
 
-	public byte[] getUserProtrait() {
+	public Blob getUserProtrait() {
 		return userProtrait;
 	}
 
-	public void setUserProtrait(byte[] userProtrait) {
+	public void setUserProtrait(Blob userProtrait) {
 		this.userProtrait = userProtrait;
 	}
 
@@ -144,11 +149,11 @@ public class AccountMember {
 	}
 
 	public Integer getYummyPoint() {
-		return YummyPoint;
+		return yummyPoint;
 	}
 
 	public void setYummyPoint(Integer yummyPoint) {
-		YummyPoint = yummyPoint;
+		this.yummyPoint = yummyPoint;
 	}
 
 	public String getLevel_id() {

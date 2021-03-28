@@ -36,5 +36,22 @@ public class AccoutMemberDao {
 		return allAccountMember;
 	}
 	
+	public boolean addAccountMember(AccountMember acc) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(acc);
+		
+		return true;
+	}
+	
+	public boolean deleteAccountMember(int accountid) {
+		Session session = sessionFactory.getCurrentSession();
+		AccountMember acc = session.get(AccountMember.class, accountid);
+		if(acc !=null) {
+			session.delete(acc);
+			return true;
+		}
+		return false;
+		}
+	
 	
 }

@@ -26,9 +26,7 @@ public class AccountDao {
 	public Account findById(int accountid) throws SQLException {
 		Session session = sessionFactory.getCurrentSession();
 		Account acc = session.get(Account.class, accountid);		
-		return acc;
-		
-		
+		return acc;		
 	}
 	
 	public boolean checkLogin(Account account) {

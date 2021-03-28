@@ -9,6 +9,6 @@ public class RootController {
 	
 	@GetMapping("/")
 	public String directToMain() {
-		return "redirect:/login.MainPage";
+		return "redirect:/accountMemberAll";
 	}
 }

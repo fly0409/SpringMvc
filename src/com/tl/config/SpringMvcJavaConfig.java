@@ -48,8 +48,7 @@ public class SpringMvcJavaConfig implements WebMvcConfigurer {
 	//定義靜態資源
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("images/**").addResourceLocations("/WEB-INF/resources/images/");
-		
+		registry.addResourceHandler("images/**").addResourceLocations("/WEB-INF/resources/images/");		
 	}
 	
 	//定義json view，讓json印出來好看一點

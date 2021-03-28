@@ -18,17 +18,20 @@
 	href="${pageContext.request.contextPath}/css/style.css">
 
 <style>
-img{
-	height:150px;
+img {
+	height: 150px;
 }
-.imgtr{
-	height:150px;
+
+.imgtr {
+	height: 150px;
 }
 </style>
 
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-secondary sticky-top"
+	<!-- TOP nav -->
+	<nav
+		class="navbar navbar-expand-lg navbar-light bg-secondary sticky-top"
 		id="headerBar">
 		<a class="navbar-brand" href="#">
 			<p class="mb-0 h2 text-white">後台管理系統</p>
@@ -65,15 +68,14 @@ img{
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#"></a>
 					</div></li>
-
-
-
 			</ul>
 		</div>
 		</div>
 	</nav>
 
+	
 	<div class="wrapper">
+		<!-- side bar -->
 		<nav id="sidebar">
 
 
@@ -92,8 +94,7 @@ img{
 				<li><a href="#">檢舉系統</a></li>
 
 				<li><a hred="#">數據分析</a></li>
-				<li><a href="">待開發</a></li>
-
+				<li><a href="">待討論功能</a></li>
 
 			</ul>
 
@@ -108,9 +109,10 @@ img{
 					<span>toggle sidebar</span>
 				</button>
 			</div>
+			
+			<a href="<c:url value='accountMemberAdd'/>">add new member</a>
 
-			<br>
-			<br>
+			<br> <br>
 			<table border="1">
 				<tr>
 					<th>AccountID
@@ -119,7 +121,10 @@ img{
 					<th>realname
 					<th>birthday
 					<th>sex
-					<th>userPortrait
+					<th>userPortrait(from file)
+					<th>userPortrait(from DB)
+					<th>update
+					<th>delete
 				</tr>
 				<c:forEach items="${allmember}" var="accMember">
 					<tr class="imgtr">
@@ -130,12 +135,15 @@ img{
 						<td>${accMember.birthday}
 						<td>${accMember.sex}
 						<td><img
+							src="${pageContext.request.contextPath}/images/${accMember.protraitName}">
+						<td><img
 							src="<c:url value='/accountMember.pic'/>?accountId=${accMember.accountID}">
 						<td>
-							<form action="update.controller" method="get">
-								<input id="update" type="hidden" value="${accMember.accountID}">
+							<form action="accMemUpdateGet" method="get">
+								<input id="update" type="hidden" name="accMemId" value="${accMember.accountID}">
 								<button type="submit">修改</button>
 							</form>
+						<td><a href="<c:url value='delectAccountMember/${accMember.accountID}'/>">刪除</a>
 					</tr>
 				</c:forEach>
 
