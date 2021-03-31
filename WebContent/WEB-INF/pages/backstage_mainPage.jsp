@@ -73,7 +73,7 @@ img {
 		</div>
 	</nav>
 
-	
+
 	<div class="wrapper">
 		<!-- side bar -->
 		<nav id="sidebar">
@@ -109,10 +109,9 @@ img {
 					<span>toggle sidebar</span>
 				</button>
 			</div>
-			
-			<a href="<c:url value='accountMemberAdd'/>">add new member</a>
 
-			<br> <br>
+			<a href="<c:url value='accountMemberAdd'/>">add new member</a> <br>
+			<br>
 			<table border="1">
 				<tr>
 					<th>AccountID
@@ -140,10 +139,13 @@ img {
 							src="<c:url value='/accountMember.pic'/>?accountId=${accMember.accountID}">
 						<td>
 							<form action="accMemUpdateGet" method="get">
-								<input id="update" type="hidden" name="accMemId" value="${accMember.accountID}">
+								<input id="update" type="hidden" name="accMemId"
+									value="${accMember.accountID}">
 								<button type="submit">修改</button>
 							</form>
-						<td><a href="<c:url value='delectAccountMember/${accMember.accountID}'/>">刪除</a>
+						<td><a
+							href="<c:url value='/delectAccountMember'/>?accountId=${accMember.accountID}"
+							onclick="javascript:return del()">刪除</a>
 					</tr>
 				</c:forEach>
 
@@ -160,6 +162,15 @@ img {
 			})
 
 		})
+
+		function del() {
+			let msg = "您真的確定要刪除嗎？\n\n請確認！";
+			if (confirm(msg) == true) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	</script>
 
 </body>

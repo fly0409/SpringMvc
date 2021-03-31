@@ -70,7 +70,7 @@ public class AccountController {
 			System.out.println(sessionStatus);
 			return "redirect:/login.MainPage";
 		}
-		return "redirect:/accountLogin";
+		return "redirect:/login.MainPage";
 		
 	}
 	

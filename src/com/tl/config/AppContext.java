@@ -33,6 +33,8 @@ public class AppContext {
 		settings.put("hibernate.dialect", "org.hibernate.dialect.SQLServerDialect");
 		settings.put("hibernate.show_sql", "true");
 		settings.put("hibernate.format_sql","true");
+//		settings.put("hbm2ddl.auto","update");
+		
 //		settings.put("current_session_context_class","thread");
 		return settings;
 	}

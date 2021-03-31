@@ -183,14 +183,13 @@ public class AccountMemberController {
 		return "redirect:/accountMemberAll";
 	}
 	
-	@GetMapping("delectAccountMember/{accID}")
-	@ResponseBody
-	public String deleteAccountMember(@PathVariable("accID") Integer accMemID) {
+	@GetMapping("/delectAccountMember")
+	public String deleteAccountMember(@RequestParam("accountId") Integer accMemID) {
 		boolean result = accMdao.deleteAccountMember(accMemID);
 		if(result) {
-			return "delete finish";
+			return "redirect:/accountMemberAll";
 		}
-		return "no this ID";
+		return "redirect:/accountMemberAll";
 		
 	}
 	

@@ -10,12 +10,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
+import com.tl.util.LoginDemoInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -37,13 +39,20 @@ public class SpringMvcJavaConfig implements WebMvcConfigurer {
 		viewResolver.setOrder(3);
 		return viewResolver;
 	}
+    @Bean
+    LoginDemoInterceptor demoInterceptor() {
+         return new LoginDemoInterceptor();
+    }
+ 
+    
 	
-	
-//
-//	@Override
-//	public void addViewControllers(ViewControllerRegistry registry) {
-//		registry.addViewController("/").setViewName("redirect:/login.MainPage");
-//	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+//		 registry.addInterceptor(new LoginDemoInterceptor());
+		    registry.addInterceptor(new LoginDemoInterceptor()).addPathPatterns("/**").excludePathPatterns("/login.MainPage/**","/login.controller/**");
+		  //registry.addInterceptor(new LoginDemoInterceptor()).addPathPatterns("/secure/*");
+	}
 
 	//定義靜態資源
 	@Override
